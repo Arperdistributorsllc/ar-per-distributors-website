@@ -15,7 +15,8 @@
             background-color: #f8f8f8;
         }
         .container {
-            width: 80%;
+            max-width: 1200px;
+            width: 90%;
             margin: auto;
             overflow: hidden;
         }
@@ -61,27 +62,32 @@
                 1px -1px 0 #000, 
                 -1px 1px 0 #000, 
                 1px 1px 0 #000,
-                8px 8px 20px #fff; /* Sombra blanca aún más pronunciada */
+                8px 8px 20px #fff;
         }
         .banner p {
-            font-size: 1.25rem; /* Aumentar el tamaño del texto de la descripción */
+            font-size: 1.25rem;
             text-shadow: 
                 -1px -1px 0 #000, 
                 1px -1px 0 #000, 
                 -1px 1px 0 #000, 
                 1px 1px 0 #000,
-                8px 8px 20px #fff; /* Sombra blanca aún más pronunciada */
+                8px 8px 20px #fff;
         }
         .services {
             padding: 3rem 0;
             background: #fff;
         }
+        .service-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
         .service {
-            float: left;
-            width: 33.33%;
-            padding: 1rem;
+            flex: 1 1 calc(33.33% - 2rem);
             box-sizing: border-box;
+            padding: 1rem;
             text-align: center;
+            margin-bottom: 2rem;
         }
         .service img {
             max-width: 100%;
@@ -104,11 +110,48 @@
             text-decoration: none;
             font-size: 1.2rem;
         }
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
+
+        /* Estilos Responsivos */
+        @media (max-width: 992px) {
+            .banner h1 {
+                font-size: 2rem;
+            }
+            .banner p {
+                font-size: 1rem;
+            }
+            .contact-btn {
+                padding: 0.5rem 0.75rem;
+            }
         }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .service {
+                flex: 1 1 calc(50% - 2rem);
+            }
+            .logo {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service {
+                flex: 1 1 100%;
+            }
+            .banner {
+                padding: 2rem 0;
+            }
+            .banner h1 {
+                font-size: 1.5rem;
+            }
+            .banner p {
+                font-size: 0.9rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -131,7 +174,7 @@
     <section class="services">
         <div class="container">
             <h2>Nuestros Servicios</h2>
-            <div class="clearfix">
+            <div class="service-container">
                 <div class="service">
                     <img src="images/service-1.webp" alt="Amplio Catálogo de Productos">
                     <h3>Amplio Catálogo</h3>
